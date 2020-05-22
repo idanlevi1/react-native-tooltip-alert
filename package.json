@@ -1,7 +1,7 @@
 {
   "name": "react-native-tooltip-alert",
-  "version": "1.0.1",
-  "description": "Add Your Own Component To Bottom Sheet Whatever You Want (Android & iOS)",
+  "version": "1.0.2",
+  "description": "Add Tooltip alert to your project (Android & iOS)",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {

@@ -1,3 +1,3 @@
-import RBSheet from "./src";
+import TooltipAlert from "./src";
 
-export default RBSheet;
+export default TooltipAlert;

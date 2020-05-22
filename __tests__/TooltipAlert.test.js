@@ -2,20 +2,20 @@ import React from "react";
 import { View, Text, Modal, TouchableOpacity, Animated } from "react-native";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import RBSheet from "../src";
+import TooltipAlert from "../src";
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("React Native Raw Bottom Sheet", () => {
   describe("Render", () => {
     it("should render correctly with no props", () => {
-      const wrapper = shallow(<RBSheet />);
+      const wrapper = shallow(<TooltipAlert />);
       expect(wrapper).toMatchSnapshot();
     });
 
     it("should render correctly with given props", () => {
       const wrapper = shallow(
-        <RBSheet
+        <TooltipAlert
           height={300}
           minClosingHeight={100}
           openDuration={350}
@@ -38,30 +38,30 @@ describe("React Native Raw Bottom Sheet", () => {
 
     it("should render correctly with any children", () => {
       const wrapper = shallow(
-        <RBSheet>
+        <TooltipAlert>
           <View>
             <Text>React Native Raw Bottom Sheet</Text>
           </View>
-        </RBSheet>
+        </TooltipAlert>
       );
       expect(wrapper).toMatchSnapshot();
     });
 
     describe("Mask", () => {
       it("should render mask", () => {
-        const wrapper = shallow(<RBSheet />);
+        const wrapper = shallow(<TooltipAlert />);
         expect(wrapper.find(TouchableOpacity).length).toEqual(1);
       });
 
       it("should closeOnPressMask when given prop true", () => {
-        const wrapper = shallow(<RBSheet closeOnPressMask />);
+        const wrapper = shallow(<TooltipAlert closeOnPressMask />);
         wrapper.instance().close = jest.fn();
         wrapper.find(TouchableOpacity).simulate("Press");
         expect(wrapper.instance().close).toHaveBeenCalled();
       });
 
       it("should not closeOnPressMask when given prop false", () => {
-        const wrapper = shallow(<RBSheet closeOnPressMask={false} />);
+        const wrapper = shallow(<TooltipAlert closeOnPressMask={false} />);
         wrapper.instance().close = jest.fn();
         wrapper.find(TouchableOpacity).simulate("Press");
         expect(wrapper.instance().close).not.toHaveBeenCalled();
@@ -70,19 +70,19 @@ describe("React Native Raw Bottom Sheet", () => {
 
     describe("Modal", () => {
       it("should render modal", () => {
-        const wrapper = shallow(<RBSheet />);
+        const wrapper = shallow(<TooltipAlert />);
         expect(wrapper.find(Modal).length).toEqual(1);
       });
     });
 
     describe("DraggableArea", () => {
       it("should not render draggable area", () => {
-        const wrapper = shallow(<RBSheet />);
+        const wrapper = shallow(<TooltipAlert />);
         expect(wrapper.find(View).length).toEqual(1);
       });
 
       it("should render draggable area", () => {
-        const wrapper = shallow(<RBSheet closeOnDragDown />);
+        const wrapper = shallow(<TooltipAlert closeOnDragDown />);
         expect(wrapper.find(View).length).toEqual(3);
       });
     });
@@ -92,8 +92,8 @@ describe("React Native Raw Bottom Sheet", () => {
     let wrapper;
     let setModalVisible;
     beforeEach(() => {
-      wrapper = shallow(<RBSheet />);
-      setModalVisible = jest.spyOn(RBSheet.prototype, "setModalVisible");
+      wrapper = shallow(<TooltipAlert />);
+      setModalVisible = jest.spyOn(TooltipAlert.prototype, "setModalVisible");
       Animated.timing = (value, config) => {
         return {
           start: callback => {
@@ -105,8 +105,8 @@ describe("React Native Raw Bottom Sheet", () => {
     });
 
     it("should createPanResponder called", () => {
-      wrapper = shallow(<RBSheet />);
-      const createPanResponder = jest.spyOn(RBSheet.prototype, "createPanResponder");
+      wrapper = shallow(<TooltipAlert />);
+      const createPanResponder = jest.spyOn(TooltipAlert.prototype, "createPanResponder");
       wrapper.instance().createPanResponder({ closeOnSwipeDown: true, height: 300 });
       expect(createPanResponder).toHaveBeenCalledTimes(1);
     });
@@ -119,7 +119,7 @@ describe("React Native Raw Bottom Sheet", () => {
 
     it("should onOpen callback function called", () => {
       const onOpen = jest.fn();
-      wrapper = shallow(<RBSheet onOpen={onOpen} />);
+      wrapper = shallow(<TooltipAlert onOpen={onOpen} />);
       wrapper.instance().open();
       expect(onOpen).toHaveBeenCalled();
     });
@@ -132,14 +132,14 @@ describe("React Native Raw Bottom Sheet", () => {
 
     it("should onClose callback function called", () => {
       const onClose = jest.fn();
-      wrapper = shallow(<RBSheet onClose={onClose} />);
+      wrapper = shallow(<TooltipAlert onClose={onClose} />);
       wrapper.instance().close();
       expect(onClose).toHaveBeenCalled();
     });
 
     it("should onRequestClose called", () => {
       const mockFn = jest.fn();
-      RBSheet.prototype.setModalVisible = mockFn;
+      TooltipAlert.prototype.setModalVisible = mockFn;
       wrapper
         .find(Modal)
         .props()

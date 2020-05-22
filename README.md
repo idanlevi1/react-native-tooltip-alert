@@ -39,16 +39,16 @@ yarn add react-native-tooltip-alert
 ```jsx
 import React, { Component } from "react";
 import { View, Button } from "react-native";
-import RBSheet from "react-native-tooltip-alert";
+import TooltipAlert from "react-native-tooltip-alert";
 
 export default class Example extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Button title="OPEN BOTTOM SHEET" onPress={() => this.RBSheet.open()} />
-        <RBSheet
+        <Button title="OPEN BOTTOM SHEET" onPress={() => this.TooltipAlert.open()} />
+        <TooltipAlert
           ref={ref => {
-            this.RBSheet = ref;
+            this.TooltipAlert = ref;
           }}
           height={300}
           openDuration={250}
@@ -60,7 +60,7 @@ export default class Example extends Component {
           }}
         >
           <YourOwnComponent />
-        </RBSheet>
+        </TooltipAlert>
       </View>
     );
   }
@@ -72,10 +72,10 @@ export default class Example extends Component {
 ```jsx
 import React, { useRef } from "react";
 import { View, Button } from "react-native";
-import RBSheet from "react-native-tooltip-alert";
+import TooltipAlert from "react-native-tooltip-alert";
 
 export default function Example() {
-  const refRBSheet = useRef();
+  const refTooltipAlert = useRef();
   return (
     <View
       style={{
@@ -85,9 +85,9 @@ export default function Example() {
         backgroundColor: "#000"
       }}
     >
-      <Button title="OPEN BOTTOM SHEET" onPress={() => refRBSheet.current.open()} />
-      <RBSheet
-        ref={refRBSheet}
+      <Button title="OPEN BOTTOM SHEET" onPress={() => refTooltipAlert.current.open()} />
+      <TooltipAlert
+        ref={refTooltipAlert}
         closeOnDragDown={true}
         closeOnPressMask={false}
         customStyles={{
@@ -100,7 +100,7 @@ export default function Example() {
         }}
       >
         <YourOwnComponent />
-      </RBSheet>
+      </TooltipAlert>
     </View>
   );
 }
@@ -111,14 +111,14 @@ export default function Example() {
 ```jsx
 renderItem = (item, index) => (
   <View>
-    <Button title={`OPEN BOTTOM SHEET-${index}`} onPress={() => this[RBSheet + index].open()} />
-    <RBSheet
+    <Button title={`OPEN BOTTOM SHEET-${index}`} onPress={() => this[TooltipAlert + index].open()} />
+    <TooltipAlert
       ref={ref => {
-        this[RBSheet + index] = ref;
+        this[TooltipAlert + index] = ref;
       }}
     >
-      <YourOwnComponent onPress={() => this[RBSheet + index].close()} />
-    </RBSheet>
+      <YourOwnComponent onPress={() => this[TooltipAlert + index].close()} />
+    </TooltipAlert>
   </View>
 );
 ```
@@ -160,7 +160,7 @@ customStyles: {
 
 ## Note
 
-- If you combind `RBSheet` with <a href="https://github.com/kmagiera/react-native-gesture-handler" target="_blank">react-native-gesture-handler</a>, the components inside RBSheet will not fire onPress event on Android [#37](https://github.com/idanlevi1/react-native-tooltip-alert/issues/37).
+- If you combind `TooltipAlert` with <a href="https://github.com/kmagiera/react-native-gesture-handler" target="_blank">react-native-gesture-handler</a>, the components inside TooltipAlert will not fire onPress event on Android [#37](https://github.com/idanlevi1/react-native-tooltip-alert/issues/37).
 - The demo source codes are in `example folder`.
 
 ## License

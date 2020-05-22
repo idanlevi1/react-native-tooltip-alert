@@ -2,7 +2,7 @@ import { Component } from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
 declare module "react-native-tooltip-alert" {
-  export type RBSheetProps = {
+  export type TooltipAlertProps = {
     animationType?: "none" | "fade" | "slide";
     height?: number;
     minClosingHeight?: number;
@@ -22,7 +22,7 @@ declare module "react-native-tooltip-alert" {
     keyboardAvoidingViewEnabled?: boolean;
   };
 
-  export default class RBSheet extends Component<RBSheetProps> {
+  export default class TooltipAlert extends Component<TooltipAlertProps> {
     open(): void;
     close(): void;
   }
