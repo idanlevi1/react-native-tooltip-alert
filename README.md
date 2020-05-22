@@ -38,28 +38,17 @@ yarn add react-native-tooltip-alert
 
 ```jsx
 import React, { Component } from "react";
-import { View, Button } from "react-native";
+import { View } from "react-native";
 import TooltipAlert from "react-native-tooltip-alert";
 
 export default class Example extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Button title="OPEN BOTTOM SHEET" onPress={() => this.TooltipAlert.open()} />
-        <TooltipAlert
-          ref={ref => {
-            this.TooltipAlert = ref;
-          }}
-          height={300}
-          openDuration={250}
-          customStyles={{
-            container: {
-              justifyContent: "center",
-              alignItems: "center"
-            }
-          }}
-        >
-          <YourOwnComponent />
+        <TooltipAlert>
+          <View>
+              <Text>Open Tooltip</Text>
+          </View>
         </TooltipAlert>
       </View>
     );
@@ -71,7 +60,7 @@ export default class Example extends Component {
 
 ```jsx
 import React, { useRef } from "react";
-import { View, Button } from "react-native";
+import { View } from "react-native";
 import TooltipAlert from "react-native-tooltip-alert";
 
 export default function Example() {
@@ -85,42 +74,14 @@ export default function Example() {
         backgroundColor: "#000"
       }}
     >
-      <Button title="OPEN BOTTOM SHEET" onPress={() => refTooltipAlert.current.open()} />
-      <TooltipAlert
-        ref={refTooltipAlert}
-        closeOnDragDown={true}
-        closeOnPressMask={false}
-        customStyles={{
-          wrapper: {
-            backgroundColor: "transparent"
-          },
-          draggableIcon: {
-            backgroundColor: "#000"
-          }
-        }}
-      >
-        <YourOwnComponent />
+      <TooltipAlert>
+        <View>
+            <Text>Open Tooltip</Text>
+        </View>
       </TooltipAlert>
     </View>
   );
 }
-```
-
-#### Dynamic Bottom Sheet
-
-```jsx
-renderItem = (item, index) => (
-  <View>
-    <Button title={`OPEN BOTTOM SHEET-${index}`} onPress={() => this[TooltipAlert + index].open()} />
-    <TooltipAlert
-      ref={ref => {
-        this[TooltipAlert + index] = ref;
-      }}
-    >
-      <YourOwnComponent onPress={() => this[TooltipAlert + index].close()} />
-    </TooltipAlert>
-  </View>
-);
 ```
 
 ## Props
@@ -169,4 +130,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 
 ## Author
 
-Made with ❤️ by [NY Samnang](https://github.com/idanlevi1).
+Made with ❤️ by [NY Idanlevi1](https://github.com/idanlevi1).

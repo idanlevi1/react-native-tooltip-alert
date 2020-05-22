@@ -1,6 +1,6 @@
 {
   "name": "react-native-tooltip-alert",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add Tooltip alert to your project (Android & iOS)",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -23,7 +23,7 @@
     "modal",
     "dialog"
   ],
-  "author": "NY Samnang",
+  "author": "NY Idanlevi1",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/idanlevi1/react-native-tooltip-alert/issues"
