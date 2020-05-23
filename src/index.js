@@ -13,33 +13,44 @@ import Tooltip from "./Tooltip";
 // </TooltipAlert>
 
 class TooltipAlert extends Component {
+
+    onCancel = () => {
+        this.props.onCancel && this.props.onCancel()
+        this.Tooltip.close()
+    }
+
+    onConfirm = () => {
+        this.props.onConfirm && this.props.onConfirm()
+        this.Tooltip.close()
+    }
+
     render() {
+        const { title, contentText, confirmButtonText, cancelButtonText, color } = this.props
         return (
             <>
-                <TouchableOpacity onPress={() => this.Message.open()} >
+                <TouchableOpacity onPress={() => this.Tooltip.open()} >
                     {this.props.children || <Text>Open Tooltip</Text>}
                 </TouchableOpacity>
 
                 <Tooltip
-                    ref={ref => { this.Message = ref; }}
+                    ref={ref => { this.Tooltip = ref; }}
                     customStyles={{
                         mask: { backgroundColor: "transparent" },
                         container: { elevation: 100 }
-                    }}>
-                    <View style={styles.messageContainer}>
-                        <Text style={styles.messageTitle}>Tooltip!</Text>
-                        <Text style={styles.message}>
-                            You can add your own component whatever you want. If you don't like our default style
-                            you can customize whatever you like.</Text>
-                        <View style={styles.messageButtonContainer}>
-                            <TouchableOpacity style={styles.messageButton} onPress={() => this.Message.close()}>
-                                <Text style={styles.messageButtonText}>CLOSE</Text>
+                    }}
+                    {...this.props}>
+                    <View style={styles.tooltipContainer}>
+                        <Text style={styles.tooltipTitle}>{title || 'Title'}</Text>
+                        <Text style={styles.tooltip}>{contentText || 'Content text'}</Text>
+                        <View style={styles.tooltipButtonContainer}>
+                            <TouchableOpacity style={[styles.tooltipButton, { borderColor: color }]} onPress={this.onCancel}>
+                                <Text style={[styles.tooltipButtonText, { color: color }]}>{cancelButtonText || 'Close'}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                style={[styles.messageButton, styles.messageButtonRight]}
-                                onPress={() => this.Message.close()}
+                                style={[styles.tooltipButton, styles.tooltipButtonRight, { borderColor: color, color: color }]}
+                                onPress={this.onConfirm}
                             >
-                                <Text style={[styles.messageButtonText, styles.messageButtonTextRight]}>GREAT</Text>
+                                <Text style={[styles.tooltipButtonText, styles.tooltipButtonTextRight]}>{confirmButtonText || 'Confirm'}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -50,25 +61,25 @@ class TooltipAlert extends Component {
 }
 
 const styles = StyleSheet.create({
-    messageContainer: {
+    tooltipContainer: {
         flex: 1,
         padding: 25
     },
-    messageTitle: {
+    tooltipTitle: {
         fontSize: 22,
         fontWeight: "bold",
         color: "#222"
     },
-    message: {
+    tooltip: {
         fontSize: 17,
         lineHeight: 24,
         marginVertical: 20
     },
-    messageButtonContainer: {
+    tooltipButtonContainer: {
         flexDirection: "row",
         justifyContent: "flex-end"
     },
-    messageButton: {
+    tooltipButton: {
         paddingHorizontal: 20,
         paddingVertical: 8,
         borderWidth: 2,
@@ -76,15 +87,15 @@ const styles = StyleSheet.create({
         borderColor: "#82ff",
         marginLeft: 10
     },
-    messageButtonText: {
+    tooltipButtonText: {
         color: "#82ff",
         fontSize: 16,
         fontWeight: "bold"
     },
-    messageButtonRight: {
+    tooltipButtonRight: {
         backgroundColor: "#82ff"
     },
-    messageButtonTextRight: {
+    tooltipButtonTextRight: {
         color: "#fff"
     }
 });

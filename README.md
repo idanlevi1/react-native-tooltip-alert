@@ -3,18 +3,6 @@
 [![npm version](https://badge.fury.io/js/react-native-tooltip-alert.svg)](//npmjs.com/package/react-native-tooltip-alert)
 [![npm downloads](https://img.shields.io/npm/dm/react-native-tooltip-alert.svg)
 ](//npmjs.com/package/react-native-tooltip-alert)
-[![Build Status](https://travis-ci.org/idanlevi1/react-native-tooltip-alert.svg?branch=master)](https://travis-ci.org/idanlevi1/react-native-tooltip-alert)
-
-- Super Lightweight Component
-- Add Your own Component To Bottom Sheet
-- Customize Whatever You Like
-- Support Drag Down Gesture
-- Support All Orientations
-- Support Both Android And iOS
-- Smooth Animation
-- Zero Configuration
-- Zero dependency
-- Top Search Ranking (react native bottom sheet) at [npms.io](https://npms.io/search?q=react%20native%20bottom%20sheet)
 
 |                                                      Showcase iOS                                                      |                                                    Showcase Android                                                    |
 | :--------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
@@ -85,22 +73,19 @@ export default function Example() {
 ```
 
 ## Props
-
+title, contentText, confirmButtonText, cancelButtonText, color, height
 | Props            | Type     | Description                                             | Default  |
 | ---------------- | -------- | ------------------------------------------------------- | -------- |
-| animationType    | string   | Background animation ("none", "fade", "slide")          | "none"   |
-| height           | number   | Height of Bottom Sheet                                  | 260      |
-| minClosingHeight | number   | Minimum height of Bottom Sheet before close             | 0        |
-| openDuration     | number   | Open Bottom Sheet animation duration                    | 300 (ms) |
-| closeDuration    | number   | Close Bottom Sheet animation duration                   | 200 (ms) |
-| closeOnDragDown  | boolean  | Use gesture drag down to close Bottom Sheet             | false    |
-| dragFromTopOnly  | boolean  | Drag only the top area of the draggableIcon to close Bottom Sheet instead of the whole content | false    |
+| title            | string   | Tooltip title text                                      | "Title"  |
+| contentText      | string   | Tooltip content text                                    | "Content text" |
+| onConfirm        | function | Callback when on confirm clicked (onClose call after)   | null     |
+| onCancel         | function | Callback when on cancel clicked (onClose call after)    | null     |
+| confirmButtonText| string   | Tooltip confirm button text                             | "Confirm"|
+| confirmButtonText| string   | Tooltip cancel button text                                      | "Close"  |
+| height           | number   | Height of tooltip                                       | 260      |
 | closeOnPressMask | boolean  | Press the area outside to close Bottom Sheet            | true     |
 | closeOnPressBack | boolean  | Press back android to close Bottom Sheet (Android only) | true     |
-| onClose          | function | Callback function when Bottom Sheet has closed          | null     |
-| onOpen           | function | Callback function when Bottom Sheet has opened          | null     |
 | customStyles     | object   | Custom style to Bottom Sheet                            | {}       |
-| keyboardAvoidingViewEnabled     | boolean   | Enable KeyboardAvoidingView             | true (ios) |
 
 ### Available Custom Style
 
@@ -112,22 +97,10 @@ customStyles: {
 }
 ```
 
-## Methods
-
-| Method Name | Description        |
-| ----------- | ------------------ |
-| open        | Open Bottom Sheet  |
-| close       | Close Bottom Sheet |
-
-## Note
-
-- If you combind `TooltipAlert` with <a href="https://github.com/kmagiera/react-native-gesture-handler" target="_blank">react-native-gesture-handler</a>, the components inside TooltipAlert will not fire onPress event on Android [#37](https://github.com/idanlevi1/react-native-tooltip-alert/issues/37).
-- The demo source codes are in `example folder`.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/idanlevi1/react-native-tooltip-alert/blob/master/LICENSE) file for details
 
 ## Author
 
-Made with ❤️ by [NY Idanlevi1](https://github.com/idanlevi1).
+Made by [Idanlevi1](https://github.com/idanlevi1).
