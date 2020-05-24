@@ -25,7 +25,7 @@ class TooltipAlert extends Component {
     }
 
     render() {
-        const { title, contentText, confirmButtonText, cancelButtonText, color } = this.props
+        const { title, contentText, confirmButtonText, cancelButtonText, color= "#82ff" } = this.props
         return (
             <>
                 <TouchableOpacity onPress={() => this.Tooltip.open()} >
@@ -47,7 +47,7 @@ class TooltipAlert extends Component {
                                 <Text style={[styles.tooltipButtonText, { color: color }]}>{cancelButtonText || 'Close'}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                style={[styles.tooltipButton, styles.tooltipButtonRight, { borderColor: color, color: color }]}
+                                style={[styles.tooltipButton, styles.tooltipButtonRight, { borderColor: color, backgroundColor: color }]}
                                 onPress={this.onConfirm}
                             >
                                 <Text style={[styles.tooltipButtonText, styles.tooltipButtonTextRight]}>{confirmButtonText || 'Confirm'}</Text>
@@ -63,7 +63,8 @@ class TooltipAlert extends Component {
 const styles = StyleSheet.create({
     tooltipContainer: {
         flex: 1,
-        padding: 25
+        padding: 25,
+        justifyContent: 'center'
     },
     tooltipTitle: {
         fontSize: 22,
