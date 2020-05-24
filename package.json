@@ -1,6 +1,6 @@
 {
   "name": "react-native-tooltip-alert",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Add Tooltip alert to your project (Android & iOS)",
   "main": "index.js",
   "typings": "index.d.ts",
