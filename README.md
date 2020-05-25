@@ -6,7 +6,7 @@
 
 |                                                      Showcase iOS                                                      |                                                    Showcase Android                                                    |
 | :--------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
-| ![](https://raw.githubusercontent.com/idanlevi1/stock-images/master/react-native-tooltip-alert/RNRBS-IOS-2.0.3.gif) | ![](https://raw.githubusercontent.com/idanlevi1/stock-images/master/react-native-tooltip-alert/RNRBS-AOS-2.0.3.gif) |
+| <img src="https://media.giphy.com/media/Vh31vrYU2LN61vW6v5/giphy.gif" width="260" height="460"> | <img src="https://media.giphy.com/media/L3zzpZM04THa7Oyxy9/giphy.gif" width="260" height="460"> |
 
 ## Installation
 
